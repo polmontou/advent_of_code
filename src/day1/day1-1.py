@@ -1,18 +1,17 @@
-file_path = "keys.txt"
+file_path = "set.txt"
 
 with open(file_path, 'r') as f:
     content = f.readlines()
     answer = 0
     for line in content:
-        number = 0
-        reversed_line = line[::-1]
+        first = 0
+        last = 0
         for char in line:
             if char.isdigit():
-                number = int(char)*10
-                break
-        for char in reversed_line:
-            if char.isdigit():
-                number += int(char)
-                break
-        answer += number
+                if first == 0 and 0 < int(char) <= 9:
+                    first = char
+                if first != 0 and 0 < int(char) <= 9:
+                    last = char
+        number = first + last
+        answer += int(number)
     print(answer)
