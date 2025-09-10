@@ -3,7 +3,7 @@ file_path = "../keys.txt"
 with open(file_path, 'r') as f:
     content = f.readlines()
     answer = 0
-    for i, line in enumerate(content):
+    for line in content:
         number = 0
         reversed_line = line[::-1]
         for char in line:

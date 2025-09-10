@@ -1,4 +1,5 @@
 .idea/
 .venv/
 keys.txt
+test.txt
 advent_of_code.iml
