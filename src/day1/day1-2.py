@@ -1,6 +1,6 @@
 import re
 
-file_path = "../keys.txt"
+file_path = "keys.txt"
 
 def convert_str_to_int(string):
     match string:

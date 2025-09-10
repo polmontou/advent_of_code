@@ -1,4 +1,4 @@
-file_path = "../keys.txt"
+file_path = "keys.txt"
 
 with open(file_path, 'r') as f:
     content = f.readlines()
