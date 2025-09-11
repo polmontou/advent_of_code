@@ -69,9 +69,12 @@ def is_part(number: str, index: int, line: int, content):
     for digit in number:
         print(digit)
 
-def parse_line(line: str, first_index: int, len: int):
+def parse_line(line: str, first_index: int, len: int, spec_chars) -> bool:
     for i in range(first_index-1, first_index+len+1):
-        for
+        for spec_char in spec_chars:
+            if line[i] == spec_char:
+                return True
+    return False
 
 
 
@@ -103,7 +106,8 @@ with open(file_path, 'r') as f:
                     started_int = False
                     found_int = ""
                     first_index = 0
-
+                    if is_part:
+                        total += int(found_int)
 
 
 
