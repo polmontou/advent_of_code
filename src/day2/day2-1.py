@@ -79,9 +79,8 @@ with open(file_path, 'r') as f:
         biggest_green = find_biggest_color_draw(line, "green")
         biggest_red = find_biggest_color_draw(line, "red")
 
-        current_id = find_int_forward(line)
-
         if biggest_blue <= game_set["blue"] and biggest_green <= game_set["green"] and biggest_red <= game_set["red"]:
+            current_id = find_int_forward(line)
             id_total += current_id
 
     print(id_total)
