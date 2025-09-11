@@ -2,7 +2,7 @@ from samba import fault_setup
 
 file_path = "set.txt"
 digits = [0,1,2,3,4,5,6,7,8,9]
-
+spec_chars =
 # def find_int_in_line(text: str, line: int):
 #     integers = []
 #     indexes = []
@@ -76,13 +76,15 @@ def parse_line(line: str, first_index: int, len: int):
 
 
 with open(file_path, 'r') as f:
-    content = f.readlines()
+    content = f.read()
+    content_in_lines = f.readlines()
+    spec_chars = find_spec_chars(content)
     started_int = False
     found_int = ""
     first_index = 0
     total = 0
 
-    for i, line in enumerate(content):
+    for i, line in enumerate(content_in_lines):
         for j, char in enumerate(line):
             if is_hint(char):
                 started_int = True
@@ -94,10 +96,10 @@ with open(file_path, 'r') as f:
                     is_part = False
                     int_length = len(found_int)
                     if i-1 >= 0 :
-                        is_part = parse_line(content[i-1], first_index, int_length)
-                    is_part = parse_line(line)
+                        is_part = parse_line(content[i-1], first_index, int_length, spec_chars)
+                    is_part = parse_line(line, first_index, int_length, spec_chars)
                     if i+1 <= len(content):
-                        is_part = parse_line(content[i+1], first_index, int_length)
+                        is_part = parse_line(content[i+1], first_index, int_length, spec_chars)
                     started_int = False
                     found_int = ""
                     first_index = 0
