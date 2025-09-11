@@ -7,15 +7,15 @@ def find_int_forward(text) :
     founded_int_once = False
 
     for i in range(len(text)):
-        digits_found = False
+        is_digit = False
         for j, digit in enumerate(digits):
             if  str(digit) == text[i]:
                 integer += text[i]
-                digits_found = True
+                is_digit = True
                 founded_int_once = True
                 break
         if founded_int_once:
-            if not digits_found:
+            if not is_digit:
                 break
 
     return int(integer)
@@ -28,17 +28,17 @@ def find_int_backward (text, index):
     stop = False
 
     while i != -1 and not stop:
-        digit_found = False
+        is_digit = False
 
         for j, digit in enumerate(digits):
             if  str(digit) == text[i]:
                 int_backward += text[i]
-                digit_found = True
+                is_digit = True
                 founded_int_once = True
                 break
 
         if founded_int_once:
-            if not digit_found:
+            if not is_digit:
                 stop = True
         i -= 1
 
